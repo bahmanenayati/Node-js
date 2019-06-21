@@ -7,11 +7,10 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/todo_db', {useNewUrlParser: true});
 
-var indexRouter = require('./routes/index');
-var userRouter = require('./routes/user');
+var indexRouter = require('./routes/Index');
+var userRouter = require('./routes/User');
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
