@@ -1,11 +1,12 @@
 {
-  "name": "Node-js",
+  "name": "node-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project for learn node js.",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "serve": "node server.js"
+    "start": "node ./bin/www"
   },
   "keywords": [
     "Test",
