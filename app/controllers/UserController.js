@@ -1,5 +1,6 @@
 let User = require('../models/User');
 const mongoose = require('mongoose');
+const {validationResult} = require('express-validator');
 
 class UserController {
     static list(request, response) {
@@ -29,6 +30,10 @@ class UserController {
     }
 
     static create(request, response) {
+        const errors = validationResult(request);
+        if (!errors.isEmpty()) {
+            return response.status(422).json({errors: errors.array()});
+        }
         const createUser = new User({
             _id: mongoose.Types.ObjectId(),
             name: request.body.name,
