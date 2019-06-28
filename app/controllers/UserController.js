@@ -42,10 +42,26 @@ class UserController {
     }
 
     static delete(request, response) {
-        User.findByIdAndDelete(request.params.id, function (err) {
-            if (err) return handleError(err);
+        User.findByIdAndDelete(request.params.id).then(result => {
             response.status(200).json({
                 message: "User deleted",
+            });
+        }).catch(error => {
+            response.status(500).json({
+                error
+            });
+        });
+    }
+
+    static update(request, response, next) {
+        User.updateOne({_id: request.body.id}, request.body)
+            .then(result => {
+                response.status(200).json({
+                    message: result
+                });
+            }).catch(error => {
+            response.status(500).json({
+                error
             });
         });
     }

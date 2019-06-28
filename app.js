@@ -9,7 +9,10 @@ const config = require('config');
 //Database connection
 const mongoose = require('mongoose');
 const dbConfig = config.get('dbConfig');
-mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {useNewUrlParser: true});
+mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {
+    useNewUrlParser: true,
+    useFindAndModify: true
+});
 
 var indexRouter = require('./routes/Index');
 var userRouter = require('./routes/User');
