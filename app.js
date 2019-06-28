@@ -3,14 +3,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const config = require('config');
+var app = express();
 
+//Database connection
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todo_db', {useNewUrlParser: true});
+const dbConfig = config.get('dbConfig');
+mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {useNewUrlParser: true});
 
+//Routers
 var indexRouter = require('./routes/Index');
 var userRouter = require('./routes/User');
+app.use('/', indexRouter);
+app.use('/user', userRouter);
 
-var app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -21,8 +28,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

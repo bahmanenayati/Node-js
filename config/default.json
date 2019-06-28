@@ -1,0 +1,7 @@
+{
+  "dbConfig": {
+    "host": "mongodb://localhost",
+    "port": 27017,
+    "dbName": "todo_db"
+  }
+}
