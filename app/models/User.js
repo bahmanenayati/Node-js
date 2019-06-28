@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 
-const orderSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    name: {type: String, default: 'hahaha'},
-    family: {type: String, default: 'hahaha'},
+    name: {type: String},
+    family: {type: String},
     bio: {type: String, match: /[a-z]/},
     date: {type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model('User', orderSchema);
+module.exports = mongoose.model('User', userSchema);

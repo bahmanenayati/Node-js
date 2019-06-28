@@ -40,6 +40,15 @@ class UserController {
             message: "User created",
         });
     }
+
+    static delete(request, response) {
+        User.findByIdAndDelete(request.params.id, function (err) {
+            if (err) return handleError(err);
+            response.status(200).json({
+                message: "User deleted",
+            });
+        });
+    }
 }
 
 module.exports = UserController
