@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var rfs = require('rotating-file-stream')
+var AirbrakeClient = require('airbrake-js');
 const config = require('config');
 
 //Database connection
@@ -13,6 +14,7 @@ mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {
     useNewUrlParser: true,
     useFindAndModify: true
 });
+
 
 var indexRouter = require('./routes/Index');
 var userRouter = require('./routes/User');
@@ -54,4 +56,8 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
+new AirbrakeClient({
+    projectId: 236804,
+    projectKey: '8726167a38a51eba564998c9130abd80'
+});
 module.exports = app;
