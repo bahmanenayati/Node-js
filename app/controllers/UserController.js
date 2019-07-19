@@ -47,7 +47,7 @@ class UserController {
     }
 
     static delete(request, response) {
-        User.findByIdAndDelete(request.params.id).then(result => {
+        User.findByIdAndDelete(request.params.id).then(() => {
             response.status(200).json({
                 message: "User deleted",
             });
@@ -58,7 +58,7 @@ class UserController {
         });
     }
 
-    static update(request, response, next) {
+    static update(request, response) {
         User.updateOne({_id: request.body.id}, request.body)
             .then(result => {
                 response.status(200).json({
