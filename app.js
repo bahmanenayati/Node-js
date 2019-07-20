@@ -7,13 +7,13 @@ var rfs = require('rotating-file-stream')
 var AirbrakeClient = require('airbrake-js');
 const config = require('config');
 
-//Database connection
-const mongoose = require('mongoose');
-const dbConfig = config.get('dbConfig');
-mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {
-    useNewUrlParser: true,
-    useFindAndModify: true
-});
+// //Database connection
+// const mongoose = require('mongoose');
+// const dbConfig = config.get('dbConfig');
+// mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {
+//     useNewUrlParser: true,
+//     useFindAndModify: true
+// });
 
 
 var indexRouter = require('./routes/Index');
