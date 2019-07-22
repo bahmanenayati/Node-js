@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+#users {
+    width: 30%;
+    float: right;
+    list-style: none;
+}
+#messages {
+    width: 70%;
+    float: left;
+    list-style: none;
 }

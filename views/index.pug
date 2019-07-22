@@ -1,5 +1,64 @@
-extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
+    input(id="chat",placeholder="Chat")
+    ul(id="users" style="width: 30%;float: right;list-style: none;direction:rtl")
+    div(class="typing")
+    div(id="messages" style="width: 30%;float: right;list-style: none;direction:rtl")
+    script(src='https://code.jquery.com/jquery-1.10.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js')
+    script.
+        var socket = io()
+        socket.on('chat message', function (data) {
+            document.getElementById('content').innerHTML += "<div style='margin-bottom: 20px'><b>" + data + "</b></div>"
+        });
+        document.getElementById('chat').addEventListener('change', function (evt) {
+            socket.emit('chat message', event.target.value)
+        })
+        document.getElementById('chat').addEventListener('change', function (e) {
+            e.preventDefault(); // prevents page reloading
+            socket.emit('chat_message', event.target.value);
+            event.target.value = '';
+            socket.emit('typing', false);
+            $('.typing').html("");
+            return false;
+        });
+        socket.on('chat_message', function (msg, user) {
+            if (user === username) {
+                $('#messages').append($('<li style="box-shadow: 0 1px 2px 0 #d3d3d3;background: #7cfc005e;border-radius: 6px;padding: 11px;margin: 10px;">').html(msg));
+            } else {
+                $('#messages').append($('<li style="box-shadow: 0 1px 2px 0 #d3d3d3;background: #fff;color:black;border-radius: 6px;padding: 11px;margin: 10px;">').html(msg));
+            }
+        });
+        socket.on('is_online', function (username) {
+            $('#users').append($('<li>').html(username));
+        });
+        socket.on('is_typing', function (data) {
+            $('#is_typing').empty();
+            $('#is_typing').append($('<li>').html(data));
+        });
+        var username = prompt('Please tell me your name');
+        if (username) {
+            socket.emit('username', username);
+        }
+        $('#chat').keyup(function (e) {
+            if (e.which === 13) {
+                socket.emit('typing', false);
+            } else if ($('#chat').val() !== '') {
+                socket.emit('typing', true);
+            } else {
+                socket.emit('typing', false);
+            }
+        });
+        socket.on('typing', function (user, isTyping) {
+            if (user === username) {
+                $('.typing').html('');
+                return
+            }
+            if (isTyping === true) {
+                $('.typing').html(user + ' is typing...');
+            } else {
+                $('.typing').html('');
+            }
+        });
+

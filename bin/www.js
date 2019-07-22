@@ -21,11 +21,23 @@ app.set('port', port);
 var server = http.createServer(app);
 
 const io = require('socket.io')(server);
-io.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('news', function (data) {
-        console.log(data);
+io.on('connection', (socket) => {
+    socket.on('username', function (username) {
+        socket.username = username;
+        io.emit('is_online', '<i>' + socket.username + ' عضو چت شد...</i>');
     });
+    socket.on('typing', function (isTyping) {
+        io.emit('typing', socket.username, isTyping);
+    });
+
+    socket.on('disconnect', function (username) {
+        io.emit('is_online', '<i>' + socket.username + ' چت را ترک کرد...</i>');
+    })
+
+    socket.on('chat_message', function (message) {
+        io.emit('chat_message', message, socket.username);
+    });
+
 });
 
 /**
