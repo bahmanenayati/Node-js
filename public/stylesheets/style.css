@@ -1,19 +1,55 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px IRANSansWeb !important;
+    direction: rtl !important;
+    text-align: right !important;
+    /* background-image:url('../images/bg-1.jpg'); 
+    background-size:cover;  */
+    background-color: #17a2b885 !important;
 }
 
 a {
     color: #00B7FF;
 }
 
-#users {
-    width: 30%;
-    float: right;
-    list-style: none;
-}
 #messages {
-    width: 70%;
+    height: 400px;
+    overflow:auto;
+    transform:rotate(180deg);
+    padding: 20px;
+}
+#messages .message{
+    transform: rotate(180deg);
+    display: flow-root;
+    margin: -15px 0;
+}
+.typing{
+    height: 30px
+}
+#messages .message small{
+    color: #616161;
+    margin: 5px;
+    position: relative;
     float: left;
-    list-style: none;
+    top: 6px;
+    right: 10px;
+}
+#messages .message.me span{
+    box-shadow: 0 1px 2px 0 #d3d3d3;
+    background: #7cfc005e;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 10px;
+    text-align: right;
+}
+#messages .message.other span{
+    box-shadow: 0 1px 2px 0 #d3d3d3;
+    background: #fff;
+    color:black;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 10px;
+    float:left;
 }

@@ -8,7 +8,7 @@ app.use(function (req, res, next) {
 })
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', {title: 'Express'});
+    res.render('index', {title: 'Real time chat'});
 });
 
 module.exports = router;

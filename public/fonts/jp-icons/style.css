@@ -1,0 +1,250 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?vt82n4');
+  src:  url('fonts/icomoon.eot?vt82n4#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?vt82n4') format('truetype'),
+    url('fonts/icomoon.woff?vt82n4') format('woff'),
+    url('fonts/icomoon.svg?vt82n4#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jp-add:before {
+  content: "\e900";
+   
+}
+.icon-jp-alert:before {
+  content: "\e901";
+   
+}
+.icon-jp-aparat:before {
+  content: "\e902";
+   
+}
+.icon-jp-bed1:before {
+  content: "\e903";
+   
+}
+.icon-jp-bed2:before {
+  content: "\e904";
+   
+}
+.icon-jp-booth:before {
+  content: "\e905";
+   
+}
+.icon-jp-box:before {
+  content: "\e906";
+   
+}
+.icon-jp-Building1:before {
+  content: "\e907";
+   
+}
+.icon-jp-Building2:before {
+  content: "\e908";
+   
+}
+.icon-jp-camera:before {
+  content: "\e909";
+   
+}
+.icon-jp-car:before {
+  content: "\e90a";
+   
+}
+.icon-jp-celebration:before {
+  content: "\e90b";
+   
+}
+.icon-jp-chat:before {
+  content: "\e90c";
+   
+}
+.icon-jp-coin:before {
+  content: "\e90d";
+   
+}
+.icon-jp-dashboard:before {
+  content: "\e90e";
+   
+}
+.icon-jp-delete:before {
+  content: "\e90f";
+   
+}
+.icon-jp-door:before {
+  content: "\e910";
+   
+}
+.icon-jp-edit1:before {
+  content: "\e911";
+   
+}
+.icon-jp-edit2:before {
+  content: "\e912";
+   
+}
+.icon-jp-facebook:before {
+  content: "\e913";
+   
+}
+.icon-jp-filter:before {
+  content: "\e914";
+   
+}
+.icon-jp-floor:before {
+  content: "\e915";
+   
+}
+.icon-jp-heart:before {
+  content: "\e916";
+   
+}
+.icon-jp-house1:before {
+  content: "\e917";
+   
+}
+.icon-jp-house2:before {
+  content: "\e918";
+   
+}
+.icon-jp-income:before {
+  content: "\e919";
+   
+}
+.icon-jp-instagram:before {
+  content: "\e91a";
+   
+}
+.icon-jp-like:before {
+  content: "\e91b";
+   
+}
+.icon-jp-list-2:before {
+  content: "\e91c";
+   
+}
+.icon-jp-list-3:before {
+  content: "\e91d";
+   
+}
+.icon-jp-list:before {
+  content: "\e91e";
+   
+}
+.icon-jp-list2:before {
+  content: "\e91f";
+   
+}
+.icon-jp-logout:before {
+  content: "\e920";
+   
+}
+.icon-jp-map:before {
+  content: "\e921";
+   
+}
+.icon-jp-medical:before {
+  content: "\e922";
+   
+}
+.icon-jp-message:before {
+  content: "\e923";
+   
+}
+.icon-jp-modey:before {
+  content: "\e924";
+   
+}
+.icon-jp-namasha:before {
+  content: "\e925";
+   
+}
+.icon-jp-ok:before {
+  content: "\e926";
+   
+}
+.icon-jp-outdoor:before {
+  content: "\e927";
+   
+}
+.icon-jp-parking:before {
+  content: "\e928";
+   
+}
+.icon-jp-password:before {
+  content: "\e929";
+   
+}
+.icon-jp-people1:before {
+  content: "\e92a";
+   
+}
+.icon-jp-people2:before {
+  content: "\e92b";
+   
+}
+.icon-jp-pidieo:before {
+  content: "\e92c";
+   
+}
+.icon-jp-search:before {
+  content: "\e92d";
+   
+}
+.icon-jp-share:before {
+  content: "\e92e";
+   
+}
+.icon-jp-store:before {
+  content: "\e92f";
+   
+}
+.icon-jp-tamasha:before {
+  content: "\e930";
+   
+}
+.icon-jp-telegram:before {
+  content: "\e931";
+   
+}
+.icon-jp-tennis:before {
+  content: "\e932";
+   
+}
+.icon-jp-training-space:before {
+  content: "\e933";
+   
+}
+.icon-jp-TV:before {
+  content: "\e934";
+   
+}
+.icon-jp-user:before {
+  content: "\e935";
+   
+}
+.icon-jp-users:before {
+  content: "\e936";
+   
+}
+.icon-jp-youtube:before {
+  content: "\e937";
+   
+}

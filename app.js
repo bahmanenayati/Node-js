@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var rfs = require('rotating-file-stream')
+var rfs = require('rotating-file-stream');
 var AirbrakeClient = require('airbrake-js');
 const config = require('config');
 
