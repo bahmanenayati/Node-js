@@ -1,9 +1,35 @@
-let User = require('../models/User');
+const User = require('../models/User');
 const mongoose = require('mongoose');
 const {validationResult} = require('express-validator');
+const redis = require("redis");
+const client = redis.createClient();
+const {promisify} = require('util');
+const getAsync = promisify(client.HGETALL).bind(client);
 
 class UserController {
     static list(request, response) {
+        // const users = [
+        //     {
+        //         name: "Bahman",
+        //         family: "Enayatei",
+        //     },
+        //     {
+        //         name: "Atefe",
+        //         family: "Asgharzadeh",
+        //     }
+        // ];
+        // client.hset('joorpin', 'users', JSON.stringify(users))
+        // client.hget(`joorpin`, `users`, (err, result) => {
+        //     // If that key exist in Redis store
+        //     if (result) {
+        //         let jsonResult = JSON.parse(result)
+        //         jsonResult.push({
+        //             name: "maryam",
+        //             family: "Asgharzadeh"
+        //         })
+        //         return response.status(200).json(jsonResult);
+        //     }
+        // });
         User.find()
             .sort({date: 'desc'})
             .then(docs => {
@@ -70,6 +96,28 @@ class UserController {
             });
         });
     }
+
+    static listView(request, response) {
+        const users = User.find()
+            .sort({date: 'desc'})
+            .then(users => {
+                return users
+            });
+        response.render('user/list', {title: 'کاربران', users: users});
+    }
 }
 
-module.exports = UserController
+exports.listView = async (request, response) => {
+    const users = await usersList()
+    response.render('user/list', {title: 'کاربران', users: users});
+};
+
+function usersList() {
+    return new Promise(resolve => {
+        User.find()
+            .sort({date: 'desc'})
+            .then(users => {
+                resolve(users)
+            });
+    })
+}

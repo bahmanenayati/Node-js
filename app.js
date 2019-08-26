@@ -7,13 +7,13 @@ var rfs = require('rotating-file-stream');
 var AirbrakeClient = require('airbrake-js');
 const config = require('config');
 
-// //Database connection
-// const mongoose = require('mongoose');
-// const dbConfig = config.get('dbConfig');
-// mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {
-//     useNewUrlParser: true,
-//     useFindAndModify: true
-// });
+//Database connection
+const mongoose = require('mongoose');
+const dbConfig = config.get('dbConfig');
+mongoose.connect(`${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`, {
+    useNewUrlParser: true,
+    useFindAndModify: true
+});
 
 
 var indexRouter = require('./routes/Index');
@@ -40,14 +40,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    next(createError(404));
-});
-
 // error handler
 app.use(function (err, req, res,) {
     // set locals, only providing error in development
+    if (!err.message) {
+        return
+    }
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 

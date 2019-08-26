@@ -1,0 +1,21 @@
+extend ../layout
+
+block content
+    h1 لیست کاربران
+    div(class="row")
+        div(class="col-md-12")
+            table(class="table table-striped")
+                thead
+                    th(scope="col") نام
+                    th(scope="col") نام خانوادگی
+                    th(scope="col") بیو
+                    th(scope="col") تاریخ عضویت
+                tbody
+                    each user in users
+                        tr
+                            td= user.name
+                            td= user.family
+                            td= user.bio
+                            td= user.date
+    script.
+

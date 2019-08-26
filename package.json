@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "keywords": [
     "Test",
@@ -30,6 +30,7 @@
     "morgan": "~1.9.1",
     "path": "^0.12.7",
     "pug": "2.0.4",
+    "redis": "^2.8.0",
     "rotating-file-stream": "^1.4.3",
     "socket.io": "^2.2.0"
   },

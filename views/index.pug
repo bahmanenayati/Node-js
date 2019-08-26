@@ -1,5 +1,5 @@
 extend layout
-    
+
 block content
     h1= title
     p Welcome to #{title}
@@ -11,15 +11,14 @@ block content
             div(class="col-md-12",id="messages")
             div(class="col-md-12")
                 div(class="input-group mb-3" style="direction: ltr;")
-                    input(type="text" class="form-control" id="chat" dir="rtl" placeholder="چیزی بنویسید..." aria-label="Example text with button addon" aria-describedby="button-addon1")    
-    script(src='https://code.jquery.com/jquery-1.10.1.min.js')
+                    input(type="text" class="form-control" id="chat" dir="rtl" placeholder="چیزی بنویسید..." aria-label="Example text with button addon" aria-describedby="button-addon1")
     script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js')
     script.
         var socket = io()
         socket.on('chat message', function (data) {
             document.getElementById('content').innerHTML += "<div style='margin-bottom: 20px'><b>" + data + "</b></div>"
         });
-    
+
         document.getElementById('chat').addEventListener('change', function (e) {
             e.preventDefault(); // prevents page reloading
             socket.emit('chat_message', event.target.value);
@@ -37,7 +36,7 @@ block content
         });
         socket.on('is_online', function (username) {
             $('#users').append("<li class='list-group-item'>"+username+"</li>");
-            
+
         });
         socket.on('is_typing', function (data) {
             $('#is_typing').empty();
